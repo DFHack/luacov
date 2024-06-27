@@ -306,11 +306,7 @@ local function is_absolute(path)
 end
 
 local function get_cur_dir()
-   local pwd_cmd = dir_sep == "\\" and "cd 2>nul" or "pwd 2>/dev/null"
-   local handler = io.popen(pwd_cmd, "r")
-   local cur_dir = handler:read()
-   handler:close()
-   cur_dir = cur_dir:gsub("\r?\n$", "")
+   cur_dir = dfhack.filesystem.getcwd()
 
    if cur_dir:sub(-1) ~= dir_sep and cur_dir:sub(-1) ~= "/" then
       cur_dir = cur_dir .. dir_sep
