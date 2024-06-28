@@ -306,7 +306,7 @@ local function is_absolute(path)
 end
 
 local function get_cur_dir()
-   cur_dir = dfhack.filesystem.getcwd()
+   local cur_dir = dfhack.filesystem.getcwd()
 
    if cur_dir:sub(-1) ~= dir_sep and cur_dir:sub(-1) ~= "/" then
       cur_dir = cur_dir .. dir_sep
