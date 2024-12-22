@@ -6,7 +6,7 @@
 
 local runner = {}
 --- LuaCov version in `MAJOR.MINOR.PATCH` format.
-runner.version = "0.14.0"
+runner.version = "0.16.0"
 
 local stats = require("luacov.stats")
 local util = require("luacov.util")
@@ -376,7 +376,7 @@ local function load_config_file(name, is_default)
    raw_os_exit(1)
 end
 
-local default_config_file = ".luacov"
+local default_config_file = os.getenv("LUACOV_CONFIG") or ".luacov"
 
 ------------------------------------------------------
 -- Loads a valid configuration.
